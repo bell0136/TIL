@@ -6,30 +6,30 @@ int main(void)
 	printf("수를 입력하시오.\n");
 	scanf("%d", &num);
 	
-	int a;//fibo_n
-	int b;//fibo_n1
-	int c;//fibo_n2
+	int fibo_n;//fibo_n
+	int fibo_n1;//fibo_n1
+	int fibo_n2;//fibo_n2
 
 	for (i = 0; i < num; i++)
 	{
 		if (i == 0)
 		{
-			a = 0;
-			printf("%d", a);
+			fibo_n = 0;
+			printf("%d", fibo_n);
 			
 		}
 		if (i == 1)
 		{
-			b = 1;
-			printf(" %d", b);
+			fibo_n1 = 1;
+			printf(" %d", fibo_n1);
 
 		}
 		if (i > 1)
 		{
-			c = b + a;
-			printf(" %d", c);
-			a = b;
-			b = c;
+			fibo_n2 = fibo_n1 + fibo_n;
+			printf(" %d", fibo_n2);
+			fibo_n = fibo_n1;
+			fibo_n1 = fibo_n2;
 		}	
 	}
 }
