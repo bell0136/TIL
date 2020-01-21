@@ -7,9 +7,9 @@ int main(void)
 	int* ptr = &arr[0];
 	for (i = 0; i < 5; i++)
 	{
-		arr[i] = *(ptr)+=2;
+		*(ptr) += 2;
 		ptr++;
-		printf("%d번째 %d\n", i + 1, arr[i]);
+		printf("%d번째 요소+2= %d\n", i + 1, arr[i]);
 	}
 	return 0;
 }

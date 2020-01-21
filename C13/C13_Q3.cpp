@@ -5,10 +5,11 @@ int main(void)
 	int arr[5] = { 1, 2, 3, 4, 5 };
 	int* ptr = &arr[4];
 	int sum = 0;
+
 	for (i = 0; i < 5; i++)
 	{
-		sum += *(ptr - i);
+		sum += *(ptr);
+		ptr--;
 	}
-	printf("ÃÑÇÕ %d", sum);
+	printf("ÇÕ°è %d", sum);
 }
-
