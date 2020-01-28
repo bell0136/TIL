@@ -37,6 +37,6 @@ int main(void)
 			}			
 		}
 		average = total / 6;
-		printf("%d¿« ∆Ú±’ = %f\n",classes+1, average);
+		printf("π›%c¿« ∆Ú±’ = %f\n",classes+65, average);
 	}
 }
