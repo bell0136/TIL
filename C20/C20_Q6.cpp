@@ -1,40 +1,54 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
 int main(void)
 {
 	int i = 0;
 	int j = 0;
+	int k = 0;
 	srand((int)time(NULL));
 	int random[3] = { rand() % 9,rand() % 9,rand() % 9 };
 	int num[3] = { 0 };
-
 	int strike = 0;
 	int ball = 0;
 
 	printf("Start Game\n");
 	for (j = 0; j < 3; j++)
 	{
-		printf("%d", random[i]);
+		printf("%d", random[j]);
 	}
 	printf("\n");
-	for (i = 0; i < 3; i++)
+
+	j = 0;
+
+	while (1)
 	{
-		printf("3°³ÀÇ ¼ýÀÚ ¼±ÅÃ : \n");
+		strike = 0;
+		ball = 0;
+		printf("\n3ê°œì˜ ìˆ«ìžì„ íƒ:");
+
 		scanf("%d %d %d", &num[0], &num[1], &num[2]);
-		/*if (random[i] == num[i])
+		for (i = 0; i < 3; i++)
 		{
-			strike += 1;
+			for (j = 0; j < 3; j++)
+			{
+				if (i == j && num[i] == random[j])
+				{
+					strike += 1;
+					if (strike == 3)
+					{
+						printf("\n%dë²ˆì§¸ ë„ì „ ê²°ê³¼: 3 strike! \n", k + 1);
+						printf("Game Over\n");
+						return 0;
+					}
+				}
+				else if (i != j && num[i] == random[j])
+				{
+					ball += 1;
+				}
+			}
 		}
-		if (random == num);
-		{
-			ball += 1;
-		}
-		printf("%d strike, %d ball\n", strike, ball);
-		*/
-		if (strike == 3)
-		{
-			printf("Game Over!\n");
-		}		
+		printf("\n%dë²ˆì§¸ ë„ì „ ê²°ê³¼: %d strike, %d ball\n", k + 1, strike, ball);
+		k++;
 	}
 }
