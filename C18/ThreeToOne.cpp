@@ -1,46 +1,74 @@
 #include <stdio.h>
-int* ThreeToOne(int* depth,int* 3darr)
+
+int* ThreeToOne(int* depth, int* order, int(*arr_3d)[3][4])
 {
+	static int arr_1d[24] = { 0 }; //반환할 배열의 경우 static붙이자ㅠㅠ
+
+	int num = 0;
 	int i = 0;
 	int j = 0;
 	int k = 0;
 	int l = 0;
-	int 1darr[12] = { 0 };
-	for (i = 0; i <depth[2];i++)
+
+	int* ptr[3] = { &k,&i,&j };
+
+	for (l = 0; l < 3; l++)
 	{
-		for (j = 0; j<depth[1];j++)
+		if (order[l] == 0)
 		{
-			for (k=0; k<depth[0]; k++)
-			{
-				printf("%d ", 3darr[k][j][i]);
-			}
+			*ptr[0] = order[l];//k
+		}
+		if (order[l] == 1)
+		{
+			*ptr[1] = order[l];//j
+		}
+		if (order[l] == 2)
+		{
+			*ptr[2] = order[l];//i
 		}
 	}
 
-	return 1darr;
+	for (i = 0; i < depth[order[2]]; i++)
+	{
+		for (j = 0; j < depth[order[1]]; j++)
+		{
+			for (k = 0; k < depth[order[0]]; k++)
+			{			
+				//printf("%d ", arr_3d[k][j][i]);
+				arr_1d[num] = arr_3d[*ptr[0]][*ptr[1]][*ptr[2]];
+				num++;
+			}
+		}
+	}
+	
+	return arr_1d;
 }
 int main(void)
 {
-	int arr[3] = { 2,1,0 };
+	int mf_order[3] = { 0,2,1 };
+
 	int i = 0;
-	int 3darr[2][2][3] = 
+
+	int arr_3d[2][3][4] =
 	{
 		{
-			{1,2,3},
-			{4,5,6}
+			{1,2,3,4},
+			{5,6,7,8},
+			{9,10,11,12}
 		},
 		{
-			{7,8,9},
-			{10,11,12}
+			{13,14,15,16},
+			{17,18,19,20},
+			{21,22,23,24}
 		}
-	};//높이 = 1,세로 = 2, 가로 = 3
+	};
 
-	ThreeToOne(arr, 3darr);
+	int mf_depth[3] = { 2,3,4 };
+	int* ptr = ThreeToOne(mf_depth, mf_order, arr_3d);
 
-	/*int* ptr = 1darr;
-
-	for (i = 0; i < 12; i++)//배열의 길이
+	
+	for (i = 0; i < 24; i++)
 	{
-		printf("%d ", *(ptr + i));
-	}*/
+		printf("%d ", ptr[i]);
+	}
 }
