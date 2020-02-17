@@ -10,13 +10,8 @@ void snail(int side_length)
 	int idx_garo = 0;
 	int size = 0;
 
-	while (1)
+	while (k != side_length / 2 + 1)
 	{
-		if (k == side_length-1) 
-		//원래는 k==side_length-2였다 두 cycle에 한번씩 올라가므로(가로,세로,가로,세로) 근데 side_length -2하면 3,2가 출력이 안돼서 -1로 수정/ 2,3을 제외한 나머지숫자에서는 불리한 코드..  
-		{
-			break;
-		}
 		size = side_length - k;
 		for (count_garo = k; count_garo < size; count_garo++) //가로 --> ,처음에 한변의 길이 만큼
 		{
