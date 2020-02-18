@@ -11,54 +11,37 @@ int space(char* str)
 }
 int main(void)
 {
-	char str1[20] = {};
-	char str2[20] = {};
-	char reverse_str1[20] = {  };
-	char reverse_str2[20] = {  };
+	char str1[20] = {0};
+	char str2[20] = {0};
+	char reverse_str1[20];
+	char reverse_str2[20];
 
 	int name1 = 0;
 	int name2 = 0;
 	int size = 0;
 	int i = 0;
-	int j = 0;
 	int age1 = 0;
 	int age2 = 0;
 
 	puts("이름 나이 입력하시오");
 	fgets(str1, sizeof(str1), stdin);
-	
+
 	puts("이름 나이 입력하시오");
 	fgets(str2, sizeof(str2), stdin);
 
-	for (i = 0; i < sizeof(str1)-1; i++)
+	for (i = 0; i <= strlen(str1) - 1; i++)
 	{
-		size = sizeof(str1);
-		reverse_str1[size - i - 1] = str1[i];
+		size = strlen(str1);
+		reverse_str1[size - i] = str1[i];
 	}
-	for (i = 0; i < sizeof(str2) - 1; i++)
+	for (i = 0; i <= strlen(str2) - 1; i++)
 	{
-		size = sizeof(str2);
-		reverse_str2[size - i - 1] = str2[i];
+		size = strlen(str2);
+		reverse_str2[size - i] = str2[i];
 	}
-	printf("\n");
 
-	printf("%d", reverse_str1[0]);
-	for (j = 0; j < sizeof(str1); j++)
-	{
-		printf("%c", reverse_str1[j]);
-	}
-	printf("\n");
-	for (j = 0; j < sizeof(str2); j++)
-	{
-		printf("%c", reverse_str2[j]);
-	}
 	name1 = space(str1);
 	name2 = space(str2);
-
-	printf("\n");
-	printf("%d", reverse_str1[0]);
-	printf("%d\n", name1);
-	printf("%d\n", name2);
 
 	if (name1 != name2)
 	{
@@ -78,9 +61,6 @@ int main(void)
 
 	age1 = space(reverse_str1);
 	age2 = space(reverse_str2);
-
-	printf("%d\n", age1);
-	printf("%d\n", age2);
 
 	if (age1 != age2)
 	{
