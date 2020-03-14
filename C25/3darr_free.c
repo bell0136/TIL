@@ -5,6 +5,7 @@ int main()
 	int*** tptr = (int***)malloc(sizeof(int**)*2);
 	int i = 0;
 	int j = 0;
+	int k = 0;
 
 	for (i = 0; i < 2; i++)
 	{
@@ -18,21 +19,32 @@ int main()
 	printf("%p\n",tptr);
 	for (i = 0; i < 2; i++)
 	{
-		printf("1.%p ", tptr[i]); 
+		
 		for (j = 0; j < 3; j++)
 		{
-			printf("2.%p ", tptr[i][j]);
+			for (k = 0; k < 4; k++)
+			{
+				tptr[i][j][k] = 1;
+				printf("%d\t", tptr[i][j][k]);
+			}
+			printf("\n");
 		}
+		printf("\n");
 	}
 
 	for (i = 0; i < 2; i++)
 	{
-		free(tptr[i]);
 		for (j = 0; j < 3; j++)
 		{
 			free(tptr[i][j]);
 		}
 	}
+	for (i = 0; i < 2; i++)
+	{
+		free(tptr[i]);
+	}
+
+	free(tptr);
 
 	return 0;
 }
