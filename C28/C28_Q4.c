@@ -4,21 +4,22 @@ int alpha_count(FILE* fp, char alpha)
 {
 	int ch;
 	int count_alpha = 0;
+	
 	while (1)
 	{
 		ch = fgetc(fp);
 		if (ch == alpha)//'A'라면
 		{
 			while (1)
-			{
+			{				
 				count_alpha += 1;
-				ch = fgetc(fp);
-				if (ch == 'SP' || ch == '\n' || ch == '\t')
-				{
+				ch = fgetc(fp);				
+				if (ch == 32 || ch == 10 || ch == 9)
+				{				
 					return count_alpha;
 				}
 			}
-		}		
+		}
 	}
 }
 
@@ -31,9 +32,9 @@ int main(void)
 		puts("파일 오픈 오류");
 		return -1;
 	}
-	
+
 	printf("A로 시작하는 단어의 수 : %d\n", alpha_count(fp, 'A'));
-	printf("P로 시작하는 단어의 수 : %d\n", alpha_count(fp, 'P'));	
+	printf("P로 시작하는 단어의 수 : %d\n", alpha_count(fp, 'P'));
 
 	fclose(fp);
 	return 0;
