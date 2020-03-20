@@ -83,6 +83,7 @@ int main(void)
 					printf("\tData Searched\n");
 				}
 			}
+			delete_data();
 		}
 		else if (num == 4)
 		{
@@ -98,7 +99,8 @@ int main(void)
 				printf("\tName:%s", man[index]->name);
 				fscanf(printer,"\tTel:%s\n", man[index]->phone);
 				printf("\tTel:%s\n", man[index]->phone);			
-			}			
+			}	
+			delete_data();
 		}
 		else if (num == 5)
 		{
