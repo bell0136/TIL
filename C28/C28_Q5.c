@@ -13,6 +13,7 @@ int cmp(FILE* fp1, FILE* fp2)
 		{
 			return 0;
 			//0반환 시 같지않음
+			//한개만 끝도달할 경우도 생각하기
 		}
 
 		if (feof(fp1) != 0 && feof(fp2) != 0)

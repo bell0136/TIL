@@ -12,9 +12,9 @@ int main()
 	int i = 0;
 	for (i = 0; i < 3; i++)
 	{
-		arr[i] = malloc(sizeof(struct point));
+		arr[i] = (int*)malloc(sizeof(struct point));
 	}
-		
+
 	for (i = 0; i < 3; i++)
 	{
 		printf("도서 정보 입력\n");
@@ -40,7 +40,7 @@ int main()
 	{
 		free(arr[i]);
 	}
-	
+
 	return 0;
 
 }
