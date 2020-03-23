@@ -1,4 +1,4 @@
-#include <stdio.h>
+##include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 struct phone_collect
@@ -44,13 +44,11 @@ int main(void)
 			{
 				if (!strcmp(man[index]->name, check_name))
 				{
-					order[flag] = 0;
+					order[index] = 0;
 					printf("\tData Deleted\n");
 					free(man[index]);
 				}
 			}
-			count--;
-			flag++;
 		}
 		else if (num == 3)
 		{
@@ -65,20 +63,21 @@ int main(void)
 					printf("\tData Searched\n");
 				}
 			}
-			
+
 		}
 		else if (num == 4)
 		{
 			for (index = 0; index < count; index++)
 			{
-				printf("[Print All Data]\n");
-				printf("\tName:%s", man[index]->name);
-				printf("\tTel:%s\n", man[index]->phone);
 				if (order[index] == 0)
 				{
 					continue;
 				}
+				printf("[Print All Data]\n");
+				printf("\tName:%s", man[index]->name);
+				printf("\tTel:%s\n", man[index]->phone);
 			}
+
 		}
 		else if (num == 5)
 		{

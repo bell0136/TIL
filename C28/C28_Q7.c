@@ -62,8 +62,7 @@ int main(void)
 					free(man[index]);
 				}
 			}
-			count--;
-			flag++;
+			
 			fflush(printer);
 		}
 		else if (num == 3)
@@ -91,10 +90,7 @@ int main(void)
 			printf("[Print All Data]\n");
 			for (index = 0; index < count; index++)
 			{
-				if (order[index] == 0)
-				{
-					continue;
-				}
+				
 				fscanf(printer,"\tName:%s", man[index]->name);
 				printf("\tName:%s", man[index]->name);
 				fscanf(printer,"\tTel:%s\n", man[index]->phone);
