@@ -11,7 +11,7 @@ int main(void)
 	int num = 0;
 	int index = 0;
 	int count = 0;
-	int flag = 0;
+
 	int order[200];
 	char check_name[20];
 	struct phone_collect* man[200];
@@ -24,17 +24,17 @@ int main(void)
 		printf("4.Print All\n");
 		printf("5.Exit\n");
 		scanf("%d", &num);
-		order[flag] = num;
+		order[count] = num;
 		if (num == 1)
 		{
-			man[flag] = malloc(sizeof(struct phone_collect));
+			man[count] = malloc(sizeof(struct phone_collect));
 			printf("Input Name :");
-			scanf("%s", man[flag]->name);
+			scanf("%s", man[count]->name);
 			printf("Input Tel Number:");
-			scanf("%s", man[flag]->phone);
+			scanf("%s", man[count]->phone);
 			printf("\tData Inserted\n");
 			count++;
-			flag++;
+
 		}
 		else if (num == 2)
 		{
