@@ -19,7 +19,7 @@ int main(void)
 	int order[200];
 	char check_name[20];
 	struct phone_collect* man[200];
-	FILE* printer = fopen("Tel_collect.txt", "wt");
+	FILE* printer = fopen("Tel_collect.txt", "at");
 	FILE* write = fopen("read_Tel_coll.txt", "rt");
 
 	while (1)
@@ -45,7 +45,7 @@ int main(void)
 			fprintf(printer, "%s", man[count]->phone);
 			printf("\tData Inserted\n");
 			count++;
-			
+
 			delete_data();
 		}
 		else if (num == 2)
@@ -63,7 +63,7 @@ int main(void)
 					free(man[index]);
 				}
 			}
-			
+
 			fflush(printer);
 		}
 		else if (num == 3)
@@ -102,7 +102,7 @@ int main(void)
 				fscanf(printer, "\tName:%s", man[index]->name);
 				printf("\tName:%s", man[index]->name);
 				fscanf(printer, "\tTel:%s\n", man[index]->phone);
-				printf("\tTel:%s\n", man[index]->phone);	
+				printf("\tTel:%s\n", man[index]->phone);
 
 			}
 			delete_data();
@@ -111,7 +111,7 @@ int main(void)
 		{
 			break;
 		}
-		
+
 		fclose(printer);
 	}
 	return 0;
