@@ -22,6 +22,19 @@ int main(void)
 	FILE* printer = fopen("Tel_collect.txt", "at");
 	FILE* write = fopen("read_Tel_coll.txt", "rt");
 
+	for (index = 0; index < 200; index++)
+	{
+		fscanf(writer, "\tName:%s", man[index]->name);
+		printf("\tName:%s", man[index]->name);
+		fscanf(writer, "\tTel:%s\n", man[index]->phone);
+		printf("\tTel:%s\n", man[index]->phone);
+
+		if (feof(printer) != 0)
+		{
+			break;
+		}
+	}
+
 	while (1)
 	{
 		printf("*****MENU*****\n");
@@ -91,10 +104,7 @@ int main(void)
 			printf("[Print All Data]\n");
 			for (index = 0; index < count; index++)
 			{
-				if (feof(printer) != 0)
-				{
-					break;
-				}
+				
 				if (order[index] == 0)
 				{
 					continue;
@@ -112,7 +122,20 @@ int main(void)
 			break;
 		}
 
-		fclose(printer);
+		
 	}
+	for (index = 0; index < count; index++)
+	{
+		fscanf(printer, "\tName:%s", man[index]->name);
+		fprintf(writer, "\tName:%s", man[index]->name);
+		fscanf(printer, "\tTel:%s\n", man[index]->phone);
+		fprintf(writer, "\tTel:%s\n", man[index]->phone);
+
+		if (feof(printer) != 0)
+		{
+			break;
+		}
+	}
+	fclose(printer);
 	return 0;
 }
