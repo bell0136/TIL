@@ -17,23 +17,25 @@ int main(void)
 	int count = 0;
 	int i = 0;
 	int seat = 0;
-	int order[200];
+	
 	char check_name[20];
-	struct phone_collect * man[200];
+	char check_tel[20];
+	struct phone_collect* man[200];
+
 
 	FILE* save = fopen("read_Tel_coll.txt", "rt");
-	
+
 	if (save == NULL)
 	{
 		puts("파일 오픈 오류");
 	}
-	
+
 	while (1)
 	{
 		man[count] = (struct phone_collect*)malloc(sizeof(struct phone_collect));
 		fscanf(save, "%s %s ", &man[count]->name, &man[count]->phone);
 		//delete_buffer();
-		
+
 		printf("\tName:%s\tTel:%s\n", man[count]->name, man[count]->phone);
 		count++;
 		if (feof(save) != 0)
@@ -41,50 +43,84 @@ int main(void)
 			fclose(save);
 			break;
 		}
-		
+
 	}
-	
+
 	while (1)
 	{
+		int insert_check = 0;
+		int delete_check = 0;
+		int search_check = 0;
 		printf("*****MENU*****\n");
 		printf("1.Insert\n");
-		printf("2.Delete\n"); 
+		printf("2.Delete\n");
 		printf("3.Search\n");
 		printf("4.Print All\n");
 		printf("5.Exit\n");
+		num = 0;
 		scanf("%d", &num);
-		order[count] = num;
+		delete_buffer();
+		
 		if (num == 1)
 		{
 
 			man[count] = (struct phone_collect*)malloc(sizeof(struct phone_collect));
 			printf("Input Name :");
-			scanf("%s", man[count]->name);
+			scanf("%s", check_name);
 			printf("Input Tel Number:");
-			scanf("%s", man[count]->phone);
-			printf("\tData Inserted\n");
-			
-			count++;
+			scanf("%s", check_tel);
+			for (index = 0; index < count; index++)
+			{
+				if (!strcmp(man[index]->name, check_name) && !strcmp(man[index]->phone, check_tel))
+				{
+					insert_check = 1;
+				}
+			}
+			if (insert_check == 1)//중복값이 있다.
+			{
+				puts("중복값이 있습니다. 다시 입력해주세요");
+			}
+			if (insert_check == 0)
+			{
+				//scanf("%s", man[count]->name);
+				strcpy(man[count]->name, check_name);
+				strcpy(man[count]->phone, check_tel);
 
+				//scanf("%s", man[count]->phone);
+				printf("\tData Inserted\n");
+				count++;
+			}
 		}
 		else if (num == 2)
 		{
 			printf("Input Name :");
 			scanf("%s", check_name);
+			printf("Input Tel :");
+			scanf("%s", check_tel);
 			for (index = 0; index < count; index++)
 			{
-				if (!strcmp(man[index]->name, check_name))
+				if (!strcmp(man[index]->name, check_name) && !strcmp(man[index]->phone, check_tel))
 				{
-					order[index] = 0;
+					
+					delete_check = 1;
 					printf("\tData Deleted\n");
 					free(man[index]);
 					for (index; index < count; index++)
 					{
-						man[index] = man[index + 1];						
+						man[index] = man[index + 1];
 					}
-				}				
+				}
+
 			}
-			count--;
+			if (delete_check == 1)
+			{
+				count--;
+			}
+			if (delete_check == 0)
+			{
+				puts("존재하지 않는 번호 또는 이름입니다. 다시입력해주세요");
+			}
+
 		}
 		else if (num == 3)
 		{
@@ -92,22 +128,27 @@ int main(void)
 			scanf("%s", check_name);
 			for (index = 0; index < count; index++)
 			{
-				
 				if (!strcmp(man[index]->name, check_name))
 				{
+					search_check = 1;
 					printf("Name:%s\n", man[index]->name);
 					printf("Tel:%s\n", man[index]->phone);
 					printf("\tData Searched\n");
 				}
 			}
+			if (search_check == 0)
+			{
+				puts("존재하지 않는 번호입니다. 다시입력해주세요.");
+			}
+
 		}
 		else if (num == 4)
 		{
 			printf("[Print All Data]\n");
 			for (index = 0; index < count; index++)
 			{
-				
-				
+
+
 				printf("\tName:%s", man[index]->name);
 				printf("\tTel:%s\n", man[index]->phone);
 			}
@@ -120,6 +161,10 @@ int main(void)
 				fprintf(save, "%s %s ", man[index]->name, man[index]->phone);
 			}
 			break;
+		}
+		else
+		{			
+			puts("숫자잘못입력, 다시입력해주세요");
 		}
 	}
 
