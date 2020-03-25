@@ -1,33 +1,12 @@
 #include <stdio.h>
+#include <string.h>
 #pragma warning (disable : 4996)
-int alpha_count(FILE* fp, char alpha)
-{
-	int ch;
-	int count_alpha = 0;
-
-	while (1)
-	{
-		ch = fgetc(fp);			
-		if (ch == alpha)//'A'라면
-		{
-			while (1)
-			{
-				count_alpha += 1;
-				ch = fgetc(fp);
-				if (ch == 32 || ch == 10 || ch == 9)
-				{
-					return count_alpha;
-				}
-			}
-		}		
-	}
-}
 
 int main(void)
 {
 	FILE* fp = fopen("wordcnt.txt", "rt");
 	char alphabet[20];
-	long here; 
+	long here;
 	int i = 0;
 	if (fp == NULL)
 	{
@@ -35,11 +14,26 @@ int main(void)
 		return -1;
 	}
 
+	while (1)
+	{
+		fscanf(fp, "%s", alphabet);
+		
+		if (alphabet[0] == 'A')
+		{
+			printf("A로 시작하는 단어의 수 : %d\n", strlen(alphabet));
+		}		
+		else if(alphabet[0] == 'P')
+		{
+			printf("P로 시작하는 단어의 수 : %d\n", strlen(alphabet));
+		}
 
-	printf("A로 시작하는 단어의 수 : %d\n", alpha_count(fp, 'A'));
-	fseek(fp, 0 ,SEEK_SET);
-	printf("P로 시작하는 단어의 수 : %d\n", alpha_count(fp, 'P'));
-
+		if (feof(fp) != 0)
+		{
+			puts("파일의 끝도달");
+			break;
+		}
+	}
+	
 	fclose(fp);
 	return 0;
 }
