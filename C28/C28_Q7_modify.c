@@ -31,6 +31,7 @@ int main(void)
 	{
 		man[count] = (struct phone_collect*)malloc(sizeof(struct phone_collect));
 		fscanf(save, "%s %s ", &man[count]->name, &man[count]->phone);
+		//delete_buffer();
 
 		printf("\tName:%s\tTel:%s\n", man[count]->name, man[count]->phone);
 		count++;
@@ -56,7 +57,7 @@ int main(void)
 		num = 0;
 		scanf("%d", &num);
 		delete_buffer();
-
+		
 		if (num == 1)
 		{
 
@@ -78,10 +79,11 @@ int main(void)
 			}
 			if (insert_check == 0)
 			{
-
+				//scanf("%s", man[count]->name);
 				strcpy(man[count]->name, check_name);
 				strcpy(man[count]->phone, check_tel);
 
+				//scanf("%s", man[count]->phone);
 				printf("\tData Inserted\n");
 				count++;
 			}
@@ -95,8 +97,7 @@ int main(void)
 			for (index = 0; index < count; index++)
 			{
 				if (!strcmp(man[index]->name, check_name) && !strcmp(man[index]->phone, check_tel))
-				{
-
+				{				
 					delete_check = 1;
 					printf("\tData Deleted\n");
 					free(man[index]);
@@ -158,8 +159,7 @@ int main(void)
 			break;
 		}
 		else
-
-		{
+		{			
 			puts("숫자잘못입력, 다시입력해주세요");
 		}
 	}
