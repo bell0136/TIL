@@ -12,7 +12,7 @@ int main()
 	int i = 0;
 	for (i = 0; i < 3; i++)
 	{
-		arr[i] = (int*)malloc(sizeof(struct point));
+		arr[i] = (struct point*)malloc(sizeof(struct point));
 	}
 
 	for (i = 0; i < 3; i++)
