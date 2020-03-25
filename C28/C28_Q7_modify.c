@@ -15,9 +15,6 @@ int main(void)
 	int num = 0;
 	int index = 0;
 	int count = 0;
-	int i = 0;
-	int seat = 0;
-	
 	char check_name[20];
 	char check_tel[20];
 	struct phone_collect* man[200];
