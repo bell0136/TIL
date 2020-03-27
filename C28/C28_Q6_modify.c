@@ -19,28 +19,6 @@ int main(void)
 	char check_tel[20];
 	struct phone_collect* man[200];
 
-
-	FILE* save = fopen("read_Tel_coll.txt", "rt");
-
-	if (save == NULL)
-	{
-		puts("파일 오픈 오류");
-	}
-
-	while (1)
-	{
-		man[count] = (struct phone_collect*)malloc(sizeof(struct phone_collect));
-		fscanf(save, "%s %s ", &man[count]->name, &man[count]->phone);
-		printf("\tName:%s\tTel:%s\n", man[count]->name, man[count]->phone);
-		count++;
-		if (feof(save) != 0)
-		{
-			fclose(save);
-			break;
-		}
-
-	}
-
 	while (1)
 	{
 		int insert_check = 0;
@@ -106,7 +84,7 @@ int main(void)
 					count--;
 				}
 			}
-			
+
 			if (delete_check == 0)
 			{
 				puts("존재하지 않는 번호 또는 이름입니다. 다시입력해주세요");
@@ -138,28 +116,17 @@ int main(void)
 			printf("[Print All Data]\n");
 			for (index = 0; index < count; index++)
 			{
-
-
 				printf("\tName:%s", man[index]->name);
 				printf("\tTel:%s\n", man[index]->phone);
 			}
 		}
 		else if (num == 5)
 		{
-			FILE* save = fopen("read_Tel_coll.txt", "wt");
-			for (index = 0; index < count; index++)
-			{
-				fprintf(save, "%s %s ", man[index]->name, man[index]->phone);
-			}
-			break;
+			return 0;
 		}
 		else
 		{
 			puts("숫자잘못입력, 다시입력해주세요");
 		}
 	}
-
-	fclose(save);
-
-	return 0;
 }

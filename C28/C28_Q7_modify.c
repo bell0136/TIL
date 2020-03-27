@@ -46,6 +46,7 @@ int main(void)
 		int insert_check = 0;
 		int delete_check = 0;
 		int search_check = 0;
+		int flag = 0;
 		printf("*****MENU*****\n");
 		printf("1.Insert\n");
 		printf("2.Delete\n");
@@ -55,7 +56,7 @@ int main(void)
 		num = 0;
 		scanf("%d", &num);
 		delete_buffer();
-		
+
 		if (num == 1)
 		{
 
@@ -87,26 +88,25 @@ int main(void)
 		{
 			printf("Input Name :");
 			scanf("%s", check_name);
-			printf("Input Tel :");
-			scanf("%s", check_tel);
+			/*printf("Input Tel :");
+			scanf("%s", check_tel);*/
 			for (index = 0; index < count; index++)
 			{
-				if (!strcmp(man[index]->name, check_name) && !strcmp(man[index]->phone, check_tel))
-				{				
+				if (!strcmp(man[index]->name, check_name))// && !strcmp(man[index]->phone, check_tel))
+				{
 					delete_check = 1;
 					printf("\tData Deleted\n");
 					free(man[index]);
-					for (index; index < count; index++)
+					flag = index;
+					for (flag; flag < count; flag++)
 					{
-						man[index] = man[index + 1];
+						man[flag] = man[flag + 1];
 					}
+					index--;
+					count--;
 				}
-
 			}
-			if (delete_check == 1)
-			{
-				count--;
-			}
+			
 			if (delete_check == 0)
 			{
 				puts("존재하지 않는 번호 또는 이름입니다. 다시입력해주세요");
@@ -154,7 +154,7 @@ int main(void)
 			break;
 		}
 		else
-		{			
+		{
 			puts("숫자잘못입력, 다시입력해주세요");
 		}
 	}
