@@ -22,7 +22,7 @@ int main(void)
 	{
 		min = sec / 60;
 		sec = sec - (min * 60);
-		printf(" m:d,", min);		
+		printf(" m:%d,", min);		
 	}
 	else if (sec - 60)
 	{
