@@ -5,11 +5,11 @@ int main(void)
 	int num2;
 	int i = 1;
 	int j = 1;
-
-	printf("수를 입력하시오.\n");
+	int check = 0;
+	printf("수를입력하시오.\n");
 	scanf("%d %d", &num1, &num2);
 
-	printf("공약수");
+	printf("출력\n");
 	for (i = num1; i > 0; i--)
 	{
 		for (j = num2; j > 0; j--)
@@ -18,7 +18,8 @@ int main(void)
 			{
 				if (i == j)
 				{
-					printf(" %d", j);
+					printf("%d ", j);
+					check = 1;
 					break;
 				}
 				if (i != j)
@@ -29,7 +30,12 @@ int main(void)
 			if (num1 % i != 0 || num2 % j != 0)
 			{
 				continue;
-			}	
+			}
 		}
-	}	
+		if (check == 1)
+		{
+			break;
+		}
+	}
+	return 0;
 }
