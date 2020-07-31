@@ -1,0 +1,92 @@
+	while(1)
+ 	{
+ 		sum+=num;
+ 		if(sum>5000)
+ 		{
+ 			break;
+		 }
+		 num++;
+		 printf("num=%d",num);
+		 printf(",sum=%d\n",sum);
+	 }
+num=2, sum=1
+.
+.
+.
+num=100,sum=4950
+
+
+for(; ; num++)
+ 	{
+ 		sum+=num;
+ 		if(sum>5000)
+ 		{
+ 			break;
+		 }
+		
+		 printf("num=%d",num);
+		 printf(",sum=%d\n",sum);
+	 }
+
+num=1,sum=1
+num=99,sum=4950
+
+while(1)
+ 	{
+ 		sum+=num;
+ 		if(sum>5000)
+ 		{
+ 			break;
+		 }
+		 
+		 printf("num=%d",num);
+		 printf(",sum=%d\n",sum);
+		 num++;
+	 }
+num=1,sum=1
+num=99,num=4950
+
+while(sum<5000)
+ 	{
+ 		sum+=num;
+ 		if(sum>7)
+ 		{
+ 			continue;
+		 }
+		 
+		 printf("num=%d",num);
+		 printf(",sum=%d\n",sum);
+		 num++;
+	 }
+num=1,sum=1
+num=3,sum=6
+
+while(sum<5000)
+ 	{
+ 		sum+=num;
+ 		if(sum>7)
+ 		{
+ 			continue;
+		 }
+		 num++;
+		 printf("num=%d",num);
+		 printf(",sum=%d\n",sum);
+		 
+	 }
+
+num=2,sum=1
+num=4,sum=6
+
+for(; sum<5000; num++)
+ 	{
+ 		sum+=num;
+ 		if(sum>7)
+ 		{
+ 			continue;
+		 }
+		 printf("num=%d",num);
+		 printf(",sum=%d\n",sum);
+		 
+	 }
+num=1,sum=1
+num=3,num=6

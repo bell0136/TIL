@@ -1,0 +1,41 @@
+#include<stdio.h>
+
+int main (void)
+{	
+	int num=65;
+	int jul;
+	int i;
+	
+	for(jul=1;jul<=4;jul++)
+		{
+			
+				if(jul%2==1)
+				{
+					
+					for(i=0;i<=5;i++)
+						{	
+							printf("%c",num);
+							num++;
+						}	
+						printf("\n");				
+				}
+				if(jul%2==0)
+					{		
+					  num+=5;	
+						for(i=0;i<=5;i++)
+							{	
+								
+								printf("%c",num);
+								num--;
+							}
+						printf("\n");
+						num+=7;
+					}
+		}	
+				for(num=89;num<=90;num++)
+					{	
+						printf("%c",num);
+					}	
+						printf("\n");				
+	return 0;
+}

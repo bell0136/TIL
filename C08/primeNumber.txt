@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main(void)
+{
+	int num = 1;
+	int a;
+	int isprime = 1;
+
+	if (num > 1)
+	{
+		for (a = 2; a < num; a++)
+		{
+			if (num % a != 0)
+			{
+				//아무것도 아님 즉, isprime=1반환 
+			}
+			else
+			{
+				isprime = 0;
+				break;
+			}
+		}
+	}
+	else
+	{
+		isprime = 2;
+		printf("1은 그 무엇도 아닙니다.");		
+	}
+
+	if (isprime == 1)
+	{
+		printf("%d는 소수가 맞습니다.\n", num);
+	}
+	else if(isprime == 0)
+	{
+		printf("%d는 소수가 아닙니다.\n", num);
+	}
+
+}
